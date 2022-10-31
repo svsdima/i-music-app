@@ -1,0 +1,21 @@
+$container-width: 1220px;
+$main: #181818;
+$secondary: #ffffff;
+$gray: #8a8a8a;
+$lgray: #d9d9d9;
+$star: #ffc656;
+$bg_project: linear-gradient(
+	125deg,
+	rgba(245, 220, 201, 1) 0%,
+	rgba(211, 189, 171, 1) 35%,
+	rgba(84, 73, 64, 1) 100%
+);
+$transition: all 0.3s ease;
+
+//base
+@import './styles/base/global';
+
+//components
+
+//pages
+@import './pages/Discover/Discover';

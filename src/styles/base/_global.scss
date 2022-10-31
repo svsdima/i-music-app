@@ -1,0 +1,76 @@
+* {
+	font-family: 'Montserrat';
+	color: $main;
+}
+html {
+	scroll-behavior: smooth;
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0;
+	overflow-x: hidden;
+}
+img {
+	display: inline-block;
+	max-width: 100%;
+}
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+p {
+	margin: 0;
+}
+li {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+h2 {
+	font-family: 'History Pro';
+	font-size: 24px;
+	line-height: 40px;
+}
+table {
+	margin: 0 auto;
+}
+td,
+th {
+	padding: 10px 20px;
+}
+tr {
+	border-bottom: 1px solid #ccc;
+}
+td {
+	text-align: center;
+	border-bottom: 1px solid #eee;
+}
+i {
+	font-size: 25px;
+}
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+main {
+	flex: 1 0 auto;
+	padding: 50px 0 80px 0;
+}
+.footer {
+	flex: 0 0 auto;
+}
+.container {
+	margin: 0 auto;
+	max-width: $container-width;
+	padding: 0 20px;
+}
+.imusic {
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 5fr 1fr;
+		justify-items: center;
+	}
+}
