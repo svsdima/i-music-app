@@ -74,3 +74,14 @@ main {
 		justify-items: center;
 	}
 }
+.title {
+	font-family: 'BeerMoney';
+	letter-spacing: 15px;
+	font-size: 50px;
+	color: $main;
+	text-transform: uppercase;
+	text-align: center;
+}
+.select {
+	background-color: $secondary;
+}
