@@ -3,7 +3,9 @@ import React from 'react';
 const Track = ({ isPlaying, isActive, activeSong }) => (
 	<div className='music-player__track'>
 		<div
-			className={`${isPlaying && isActive ? 'music-player__track-active' : ''} 'music-player__img`}
+			className={`${
+				isPlaying && isActive ? 'music-player__track-img active' : 'music-player__track-img'
+			} `}
 		>
 			<img src={activeSong?.images?.coverart} alt='cover art' className='rounded-full' />
 		</div>

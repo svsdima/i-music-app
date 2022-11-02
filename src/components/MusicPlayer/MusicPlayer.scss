@@ -1,13 +1,13 @@
 .music-player {
-	padding: 20px;
 	position: fixed;
 	width: 100%;
-	height: 25%;
+	height: 8rem;
 	bottom: 0;
 	left: 0;
 	display: grid;
-	grid-template-columns: 1fr 5fr 1fr;
-	background-color: rgba($color: $secondary, $alpha: 0.6);
+	grid-template-columns: 2fr 5fr 2fr;
+	background-color: rgba($color: $secondary, $alpha: 1);
+	z-index: 50;
 	&__wrapper {
 		display: grid;
 		justify-items: center;
@@ -19,23 +19,81 @@
 	}
 	&__track {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 110px 1fr;
 		align-items: center;
 		gap: 20px;
-		&-active {
-			animation: RotationImg 10s linear 0s infinite normal forwards;
+		padding-left: 10px;
+		&-img {
+			width: 100px;
+			height: 100px;
+			border: 25px;
+			overflow: hidden;
+			border: 1px solid transparent;
+			position: relative;
+			transition: $transition;
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: $transition;
+			}
+			&.active {
+				--border-width: 3px;
+				width: 100px;
+				height: 100px;
+				border: 25px;
+				overflow: hidden;
+				position: relative;
+				transition: $transition;
+				img {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translateX(-50%) translateY(-50%);
+					width: 90%;
+					height: 90%;
+					object-fit: cover;
+					display: block;
+					transition: $transition;
+				}
+				border-radius: var(--border-width);
+				&::after {
+					position: absolute;
+					content: '';
+					top: calc(-1 * var(--border-width));
+					left: calc(-1 * var(--border-width));
+					z-index: -1;
+					width: calc(100% + var(--border-width) * 2);
+					height: calc(100% + var(--border-width) * 2);
+					background: linear-gradient(
+						60deg,
+						hsl(224, 85%, 66%),
+						hsl(269, 85%, 66%),
+						hsl(314, 85%, 66%),
+						hsl(359, 85%, 66%),
+						hsl(44, 85%, 66%),
+						hsl(89, 85%, 66%),
+						hsl(134, 85%, 66%),
+						hsl(179, 85%, 66%)
+					);
+					background-size: 300% 300%;
+					background-position: 0 50%;
+					border-radius: calc(2 * var(--border-width));
+					animation: moveGradient 4s alternate infinite;
+				}
+			}
 		}
 	}
-	&__img {
-		width: 100px;
-		height: 100px;
-		border: 25px;
-		overflow: hidden;
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
+	&__volume {
+		display: grid;
+		align-items: center;
+		grid-template-columns: 40px 150px;
+		padding-right: 10px;
 	}
 	&__info {
 		&-title {
@@ -47,6 +105,20 @@
 			font-weight: 300;
 		}
 	}
+	&__seekbar {
+		display: grid;
+		grid-template-columns: 1fr 1fr 5fr 1fr 1fr;
+		align-items: center;
+		justify-items: center;
+		&-btn {
+			background-color: $secondary;
+			cursor: pointer;
+			font-size: 20px;
+		}
+		&-input {
+			width: 250px;
+		}
+	}
 }
 
 @keyframes RotationImg {
@@ -56,5 +128,10 @@
 
 	100% {
 		transform: rotate(360deg);
+	}
+}
+@keyframes moveGradient {
+	50% {
+		background-position: 100% 50%;
 	}
 }

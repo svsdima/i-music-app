@@ -68,9 +68,14 @@ main {
 	padding: 0 20px;
 }
 .imusic {
-	&__wrapper {
+	background: linear-gradient(180deg, rgba(0, 30, 66, 1) 0%, rgba(25, 0, 52, 1) 100%);
+	&__main {
 		display: grid;
 		grid-template-columns: 5fr 1fr;
+	}
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 5fr;
 		justify-items: center;
 	}
 }
